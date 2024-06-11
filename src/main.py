@@ -6,13 +6,13 @@ def load_and_sort_data():
     """
     Загружает файл с операциями и возвращает отсортированный по дате список
     """
-    with open('operations.json', encoding="utf8") as file:
+    with open('/Users/mf840/coursework3/src/operations.json', 'r', encoding="utf8") as file:
         data = json.load(file)
         sorted_data = sorted(data, key=lambda x: x.get('date', ''), reverse=True)
     return sorted_data
 
 
-def get_transaction(sorted_data: list):
+def format_transactions(sorted_data):
     """
     Получает список, форматирует дату и возвращает 5 последних успешных операций
     """
@@ -35,7 +35,7 @@ def get_transaction(sorted_data: list):
     return executed_list
 
 
-def masks_card(executed_list: list):
+def mask_card(executed_list):
     """
     Маскирует счет или карту, выводит на экран готовый список
     """
@@ -65,5 +65,5 @@ def masks_card(executed_list: list):
 
 
 a = load_and_sort_data()
-b = get_transaction(a)
-c = masks_card(b)
+b = format_transactions(a)
+c = mask_card(b)
