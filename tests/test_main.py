@@ -10,10 +10,3 @@ def test_get_transaction():
     load = load_and_sort_data()
     transactions = format_transactions(load)
     assert len(transactions) == 5
-
-
-# def test_mask_card():
-#     load = load_and_sort_data()
-#     transactions = format_transactions(load)
-#     operation = mask_card(transactions)
-#     pass
