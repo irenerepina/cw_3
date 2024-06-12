@@ -1,4 +1,5 @@
 import json
+import pathlib
 from datetime import datetime
 
 
@@ -6,7 +7,8 @@ def load_and_sort_data():
     """
     Загружает файл с операциями и возвращает отсортированный по дате список
     """
-    with open('/Users/mf840/coursework3/src/operations.json', 'r', encoding="utf8") as file:
+    p = pathlib.Path('/Users/mf840/coursework3/src/operations.json')
+    with p.open('r') as file:
         data = json.load(file)
         sorted_data = sorted(data, key=lambda x: x.get('date', ''), reverse=True)
     return sorted_data
